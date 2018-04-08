@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>list</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron">
+    <!-- <form method="get" action="/search/" class="navbar-form pull-right">
+<input type="text" id="searchBox" class="input-medium search-query" name="q" placeholder="Search">
+<input type="submit" class="btn" value="Search" >
+</form> -->
+    {% if task_list %}
+<p class="lead">Task List:</p>
+<table class="table table-striped table-condensed">
+  <thead>
+    <th>Task</th>
+    <th>Status</th>
+    <th>Deu Date</th>
+
+  </thead>
+  <tbody>
+    {% for tk in task_list %}
+        <tr>
+          <td> <a href="{% url 'task_detail' pk=tk.pk %}"> {{ tk.titles }}</a></td>
+          <td>{{ tk.status }}</a></td>
+          <td>{{ tk.due_date }}</td>
+
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+    <p class="lead">No orders are available.</p>
+{% endif %}
+</div>
+
+</div>
+  </body>
+</html>
